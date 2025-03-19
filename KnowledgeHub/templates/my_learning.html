@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+  <div class="row">
+    {% if courses %}
+      <div class="courses-list">
+        {% for course in courses %}
+          <div class="col-md-3 col-sm-4 mb-4 card course-card h-100">
+            <img src="{{ url_for('static', filename=course.course_image) }}" 
+            class="card-img-top course-card-img" 
+            alt="{{ course.course_name }}">
+            <div class="card-body">
+                <h5 class="card-title course-card-title">{{ course.course_name }}</h5>
+                <p class="card-text course-card-desc">
+                  {{ course.description[:100] }}{% if course.description|length > 100 %}...{% endif %}
+                </p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+    <div class="empty-state" style="margin:20px">
+      <img src="/images/no_courses.gif"alt="No Courses Found!">
+      <p>You have not purchased any courses yet.</p>
+    </div>
+      
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

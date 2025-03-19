@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+  <div class="row">
+    {% if courses %}
+      {% for course in courses %}
+        <div class="col-md-3 mb-4">
+          <a href="{{ url_for('view_course', id=course.id) }}" class="course-card-link">
+            <div class="card course-card h-100">
+              {% if course.course_image %}
+                <img src="{{ url_for('static', filename=course.course_image) }}" 
+                     class="card-img-top course-card-img" 
+                     alt="{{ course.course_name }}">
+              {% else %}
+                <img src="{{ url_for('static', filename='images/course_img.png') }}" 
+                     class="card-img-top course-card-img" 
+                     alt="Default Course Image">
+              {% endif %}
+              <div class="card-body">
+                <h5 class="card-title course-card-title">{{ course.course_name }}</h5>
+                <p class="card-text course-card-desc">
+                  {{ course.description[:100] }}{% if course.description|length > 100 %}...{% endif %}
+                </p>
+              </div>
+              <div class="card-footer">
+                <p class="course-card-price">$ {{ course.price }}</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+    {% else %}
+      
+      <div class="empty-state">
+        <img src="/images/no_courses.gif"alt="No Courses Found!">
+        <h3>No Courses Available</h3>
+        <p>It looks like there are no courses at the moment. Please check back later!</p>
+      </div>
+      
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}

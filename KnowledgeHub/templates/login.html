@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="container login-container">
+
+  <div class="row form-card">
+    <div class="welcome-section col-md-5">
+      <h1>Welcome to Knowledge Hub</h1>
+      <img src="/images/bg_gray.png" alt="Welcome Image">
+    </div>
+    <div class="col-md-5">
+    <!-- Title -->
+    <h1 class="form-title">Login</h1>
+    <p class="form-subtitle">to get started</p>
+
+    <div class="login-google-container">
+      <a class="btn-google" href="{{ url_for('google_login') }}">
+        <img width="48" height="48" src="https://img.icons8.com/fluency/48/google-logo.png" alt="google-logo"/>
+        <p>Continue with Google</p>
+      </a>
+    </div>
+    <div class="login-google-container">
+      <a class="btn-google" href="{{ url_for('github_login') }}">
+        <img width="48" height="48" src="https://img.icons8.com/?size=100&id=AZOZNnY73haj&format=png&color=000000" alt="github-logo"/>
+        <p>Continue with Github</p>
+      </a>
+    </div>
+    <div class="or">----- OR -----</div>
+    <!-- Login Form -->
+    <form action="{{ url_for('login') }}" method="POST">
+      <!-- Email/Username Field -->
+      <div class="mb-3">
+        <input
+          type="email"
+          name="email"
+          class="form-control form-input"
+          placeholder="Email Address"
+          required
+        >
+      </div>
+
+      <!-- Password Field -->
+      <div class="mb-3">
+        <input
+          type="password"
+          name="password"
+          class="form-control form-input"
+          placeholder="Password"
+          required
+        >
+      </div>
+
+      <!-- Forgot Password -->
+
+
+      <!-- Submit Button -->
+      <div class="d-grid">
+        <button type="submit" class="btn form-btn">Continue</button>
+      </div>
+    </form>
+
+    <!-- Register Link -->
+    <div class="text-center  register-link">
+      <span>New User? <a href="{{ url_for('signup') }}" class="text-decoration-none">Signup</a></span>
+    </div>
+  </div>
+</div>
+</div>
+
+
+{% endblock %}

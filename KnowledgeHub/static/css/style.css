@@ -1,0 +1,744 @@
+/******************************************
+  Theme Variables
+******************************************/
+:root {
+    --primary-color: #f8f9fa; /* Light grayish background for a clean look */
+    --secondary-color: #ffffff; /* Pure white for contrast */
+    --font-color: #252535; /* Darker gray for readability */
+    --accent-color: rgba(100, 100, 100, 0.81);
+    --sub-font-color: #6c757d; /* Blue accent for interactive elements */
+    --form-input-color: #f4f4f4;
+
+  }
+  
+  .darkmode{
+    --primary-color: #13131A;
+    --secondary-color: #252535;
+    --font-color: #CCCCCC;
+    --accent-color: #b4b4b4;
+    --sub-font-color: #6c757d;
+    --form-input-color: #474765c4;
+  }
+  
+  
+  /******************************************
+    Global Styles
+  ******************************************/
+  body {
+    color: var(--font-color);
+    background-color: var(--primary-color);
+    font-family: 'Cambria', sans-serif;
+  }
+  
+  /******************************************
+    Navbar Styles
+  ******************************************/
+  .nav-link {
+    color: var(--sub-font-color);
+    font-size: 16px;
+  }
+  .nav-link.active {
+    color: var(--font-color);
+  }
+  .nav-link:hover {
+    color: var(--font-color);
+    transform: scale(1.1);
+  }
+  
+  .nav-ham {
+    font-size: 24px;
+    color: var(--accent-color);
+  }
+  
+  .navbar-brand {
+    color: var(--font-color);
+    font-weight: 600;
+  }
+  .navbar-brand:hover {
+    color: var(--font-color);
+  }
+  
+  .custom_navbar {
+    background-color: var(--secondary-color);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s;
+  }
+  
+  .navbar-toggler {
+    border: none;
+    font-size: 22px;
+    color: var(--primary-color);
+    transition: transform 0.2s;
+  }
+  .navbar-toggler:focus,
+  .navbar-toggler:hover {
+    outline: none;
+    transform: scale(1.1);
+  }
+  .navbar-toggler:focus,
+  .navbar-toggler:active {
+    outline: none;
+    box-shadow: none;
+  }
+  
+  /* Position navbar-toggler for smaller screens */
+  @media (max-width: 992px) { 
+    .navbar-toggler {
+      position: absolute;
+      right: 15px;
+      top: 10px;
+    }
+    .nav-link:hover {
+      color: var(--font-color);
+      transform: none;
+    }
+  }
+
+  /******************************************
+    Theme Toggle Button
+  ******************************************/
+  .theme-toggle {
+    color: var(--font-color);
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s ease-in-out;
+    outline: none;
+  }
+  .theme-toggle:focus,
+  .theme-toggle:active {
+    outline: none;
+    box-shadow: none;
+  }
+  .theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.1);
+    color: var(--accent-color);
+  }
+
+  
+  /******************************************
+    Logged User Section
+  ******************************************/
+  .dropdown-toggle {
+    padding: 10px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: var(--accent-color);
+    transition: background 0.3s, transform 0.2s;
+  }
+  .dropdown a{
+    color: var(--accent-color);
+  }
+  .dropdown a:hover,.dropdown-item-text:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--accent-color);
+    /* transform: scale(1.05); */
+  }
+
+
+  .dropdown-menu {
+    padding: 0px;
+    left:auto!important;
+    color: white !important;
+    background-color: var(--form-input-color) !important;
+  }
+
+  .dropdown-item ,.dropdown-item-text{
+    color: var(--accent-color);
+  }
+
+
+
+  
+  /******************************************
+    Card Component
+  ******************************************/
+  .course-card-link {
+    text-decoration: none;
+    color: inherit;
+  }
+  .course-card {
+    /* border: none; */
+    border-radius: 12px;
+    background: var(--secondary-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  
+  .course-card-img {
+    width: 100%;
+    height: 170px;
+    object-fit: contain;
+    padding: 15px !important;
+    border-top-left-radius: 12px;
+    /* background: #b2b2c436; */
+    border-top-right-radius: 12px;
+    border-bottom: 1px solid #6d6d6d42 !important;
+
+  }
+  
+  
+  .course-card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--font-color);
+  }
+  
+  .course-card-desc {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    line-height: 16px;
+    font-size: 0.85rem;
+    color: var(--sub-font-color);
+    margin-bottom: 8px;
+  }
+  
+  .course-card-price {
+    font-size: 1rem;
+    color: var(--accent-color);
+    /* border-bottom: 1px solid rgba(0, 0, 0, 0.1); */
+    width: fit-content;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+.card-footer{
+    background-color: var(--form-input-color) !important;
+}
+
+  
+  /******************************************
+    Login Card & Form Styles
+  ******************************************/
+  .login-google-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    padding: 12px;
+    max-width: 355px;
+    margin-bottom: 16px;
+    border:1px solid var(--sub-font-color) !important;
+    border-radius: 6px;
+    height: 3rem;
+    img{
+      height: 26px;
+      width: 26px;
+      margin-right: 10px;
+    }
+    a{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--sub-font-color);
+      p{
+        margin:0px
+      }
+ 
+    }
+  }
+
+  .or{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0px;
+    font-size: 10pt;
+    color: var(--sub-font-color);
+  }
+  .login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .login-container .form-card{
+    background-color: var(--secondary-color);
+    border-radius: 12px;
+    width: max-content!important;
+    justify-content: space-around;
+    align-items: end;
+    padding: 1.5rem 0rem 1.5rem 0rem;
+    max-width: none;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (max-width: 768px) { 
+    .welcome-section img{
+      display: none;
+    }
+    .login-container .form-card{
+      padding: 2rem;
+      max-width: 400px;
+    }
+
+  }
+  .welcome-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSlideUp 1s ease forwards;
+  }
+  @keyframes fadeInSlideUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .welcome-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    
+  }
+  
+  .form-card {
+    background-color: var(--secondary-color);
+    border-radius: 12px;
+    max-width: 400px;
+    width: 100%;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  .form-card form {
+    border: none;
+    box-shadow: none;
+  }
+  .form-title {
+    font-size: 2rem;
+    /* font-weight: 700; */
+  }
+  .form-subtitle {
+    font-size: 1rem;
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+  }
+  .form-input {
+    border-radius: 12px;
+    height: 3rem;
+    font-size: 1rem;
+  }
+  .form-btn {
+    border-radius: 6px;
+    height: 3rem;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500;
+    background-color: var(--sub-font-color) !important;
+    border: none;
+  }
+  .form-btn:active, .form-btn:focus{
+    box-shadow: none;
+    outline: none;
+  }
+  /* .form-btn:hover {
+    background-color: var(--form-input-color) !important;
+    color: var(--accent-color);
+  } */
+  .forgot-password {
+    font-size: 0.9rem;
+  }
+  .register-link {
+    font-size: 0.9rem;
+    margin-top: 12px;
+  }
+  .register-link span {
+    color: var(--accent-color);
+  }
+  .register-link span a {
+    color: var(--accent-color);
+    font-weight: 600;
+  }
+  
+  /* Input, Number, Password & Textarea Styles */
+  form input[type='text'],
+  form input[type='number'],
+  form input[type='password'],
+  form input[type='email'],
+  form textarea {
+    padding: 10px!important;
+    border-radius: 5px;
+    border: none !important;
+    margin-bottom: 2px;
+    color: var(--accent-color) !important;
+    background-color: var(--form-input-color) !important;
+  }
+  form input[type='text']:focus,
+  form input[type='number']:focus,
+  form input[type='password']:focus,
+  textarea:focus,
+  textarea:active,
+  form input[type='email']:active,
+  form input[type='email']:focus,
+  form input[type='submit']:active,
+  form input[type='submit']:focus,
+  form input[type='text']:active,
+  form input[type='number']:active,
+  form input[type='password']:active {
+    border: 1px solid var(--font-color) !important;
+    box-shadow: none !important;
+  }
+  
+  /* File Input Styles */
+  form input[type='file'] {
+    height: unset;
+    border-radius: 6px;
+    font-size: 13px;
+    border: none;
+    color: var(--accent-color);
+    background: transparent !important;
+  }
+  form input[type='file']:active,
+  form input[type='file']:focus {
+    border: none !important;
+    box-shadow: none !important;
+  }
+  
+  /******************************************
+    Modal Styles
+  ******************************************/
+  .modal-content {
+    background-color: var(--secondary-color);
+    border-radius: 12px;
+    width: 100%;
+    padding: 10px !important;
+    border: 1px solid #8484855c;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .confirmDeleteModal .modal-content {
+    background-color: var(--secondary-color);
+    border-radius: 12px;
+    width: 100%;
+    max-width: 400px;
+    padding: 10px 0px 0px 0px!important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  .modal-header {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1rem 0 1rem !important;
+    border-bottom: none !important;
+  }
+  .modal-header .modal-title {
+    font-size: 2rem;
+    margin-bottom: 0px;
+  }
+  .modal-body {
+    color: var(--sub-font-color);
+    margin-bottom: -15px;
+    margin-left: 6px;
+  }
+  .modal-footer {
+    border-top: none !important;
+    padding: 0 !important;
+  }
+  .modal-footer .btn {
+    width: 100%;
+  }
+  
+  /* Close Icon using Font Awesome */
+  .fa-times {
+    color: var(--sub-font-color);
+  }
+  
+/* Container for the view course page */
+.view-course-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  
+  /* Course card styling */
+  .view-course-card {
+    background-color: var(--secondary-color);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, .125);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    margin-bottom: 20px;
+  }
+  
+  .view-course-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  /* Course image styling */
+  .view-course-img {
+    width: 100%;
+    height: 300px;
+    padding: 12px;
+    object-fit: contain;
+    background: #b2b2c436;
+  }
+  /* Icons Overlay */
+.view-course-icons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+  }
+  
+  .view-course-icons i {
+    font-size: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    color: var(--accent-color);
+  }
+  
+  .view-course-icons i:hover {
+    transform: scale(1.1);
+    background: var(--accent-color);
+    color: white;
+  }
+
+  
+  .darkmode .view-course-icons i{
+    font-size: 20px;
+    background: var(--secondary-color);
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    color: var(--accent-color);
+  }
+
+  .darkmode .view-course-icons i:hover {
+    transform: scale(1.1);
+    background: var(--accent-color);
+    color: var(--secondary-color);
+  }
+
+  /* Course card body styling */
+  .view-course-body {
+    padding: 20px;
+  }
+  
+  /* Course title */
+  .view-course-title {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+    color: var(--accent-color);
+  }
+  
+  /* Course description with multi-line clamp */
+  .view-course-desc {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #6c757d;
+  }
+  
+  /* Price styling */
+  .view-course-price {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+  }
+  
+  /* Date styling */
+  .view-course-created,
+  .view-course-updated {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 5px;
+  }
+
+  .view-course-actions{
+    margin: auto;
+    padding: 12px;
+    align-items: center;
+    background: #b2b2c436;
+    a{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 0, .125);
+    }
+    a:nth-child(2){
+      background-color: var(--secondary-color);
+      text-decoration: none;
+      color: var(--accent-color);
+      align-items: center;
+      font-size: 14pt;
+      border-radius: 6px;
+      height: 3rem;
+      margin: 9px;
+      width: 100%;
+    }
+    a:nth-child(1){
+      background-color: var(--secondary-color);
+      text-decoration: none;
+      color: var(--accent-color);
+      align-items: center;
+      font-size: 14pt;
+      border-radius: 6px;
+      height: 3rem;
+      margin: 9px;
+      width: 100%;
+    }
+    a:nth-child(1):hover{
+      color: var(--font-color);
+    }
+    a:nth-child(2):hover{
+      color: var(--font-color);
+    }
+  }
+  
+/* Fixed container for alerts at the bottom-right */
+.alert-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1050;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  /* Keyframes for fade-in and slide-up effect */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Base alert style common to both themes */
+  .alert {
+    animation: fadeInUp 0.5s ease-out;
+    padding: 1rem 1.5rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    max-width: 300px;
+    margin: 1rem auto;
+    border-left: 5px solid var(--accent-color);
+  }
+  
+  /* Light Mode Alerts: dark background with light text */
+  body:not(.darkmode) .alert {
+    background-color: #252535; /* dark background */
+    color: #f8f9fa;            /* light text */
+  }
+  
+  body:not(.darkmode) .alert:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Dark Mode Alerts: light background with dark text */
+  body.darkmode .alert {
+    background-color: #f8f9fa; /* light background */
+    color: #252535;            /* dark text */
+  }
+  
+  body.darkmode .alert:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .empty-state img {
+    max-width: 300px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .empty-state h3 {
+    font-size: 24px;
+    color: var(--font-color);
+    margin-bottom: 10px;
+    margin-left: 15px;
+  }
+  
+  .empty-state p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-left: 15px;
+  }
+  
+.table-card{
+  background-color: var(--secondary-color);
+  border: none;
+  border-radius: 12px;
+  width: 100%;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+  thead{
+    background-color: var(--form-input-color) !important;
+
+  }
+  tr{
+    border-bottom: 1px solid var(--form-input-color);
+  }
+  tr:nth-last-child(1){
+    border:none
+  }
+  .action-btns{
+    position: relative; /* Establishes a positioning context */
+    display: inline-block;
+  }
+  .action-btns .block-user{
+    margin-right: 12px;
+  }
+  .action-btns .block-user:hover::after {
+    content: "Block User";
+    position: absolute;
+    top: 20px;
+    left: 0%;
+    transform: translateX(-50%);
+    background-color: var(--form-input-color);
+    color: var(--font-color);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 10pt;
+    white-space: nowrap;
+    z-index: 10;
+    opacity: 0.9;
+  }
+  .action-btns .delete-user:hover::after {
+    content: "Delete User";
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--form-input-color);
+    color: var(--font-color);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 10pt;
+    white-space: nowrap;
+    z-index: 10;
+    opacity: 0.9;
+  }
+
+} 

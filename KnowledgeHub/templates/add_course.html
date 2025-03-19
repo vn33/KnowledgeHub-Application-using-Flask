@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container form-container d-flex justify-content-center align-items-center" style="margin-top: 20px;">
+    <div class="form-card">
+      <!-- Title -->
+      <h1 class="form-title" style="margin-bottom:30px;">Add Course</h1>
+  
+      <!-- form Form -->
+      <form action="{{ url_for('add_course') }}" method="POST" enctype="multipart/form-data">
+        <!-- course_name Field -->
+        <div class="mb-3">
+          <input
+            type="text"
+            name="course_name"
+            class="form-control form-input"
+            placeholder="course_name"
+            required
+          >
+        </div>
+      <!-- Description -->
+        <div class="mb-3">
+          <textarea
+            name="description"
+            class="form-control"
+            placeholder="description"
+            required
+          ></textarea>
+        </div>
+        <!-- price Field -->
+        <div class="mb-3">
+          <input
+            type="number"
+            name="price"
+            step="any" 
+            class="form-control form-input"
+            placeholder="price"
+            required
+          >
+        </div>
+        <!-- image Field -->
+        <div class="mb-3">
+          <input
+            type="file" 
+            name="course_image" 
+            id="course_image" 
+            accept="image/*"
+            class="form-control form-input"
+            placeholder="upload course image"
+            required
+          >
+        </div>
+        <!-- Submit Button -->
+        <div class="d-grid">
+          <button type="submit" class="btn form-btn">Create</button>
+        </div>
+      </form>
+  
+    </div>
+  </div>
+
+{% endblock %}

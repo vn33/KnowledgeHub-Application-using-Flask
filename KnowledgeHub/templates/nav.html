@@ -1,0 +1,51 @@
+<nav class="navbar custom_navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="{{ url_for('index') }}">Knowledge Hub</a>
+      <!-- Navbar Toggler (Hamburger Menu) -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars nav-ham"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link {% if request.endpoint == 'index' %}active{% endif %}" href="{{ url_for('index') }}">Courses</a>
+          </li>
+          {% if current_user.role in ['admin','subadmin'] %}
+          <li class="nav-item">
+            <a class="nav-link {% if request.endpoint == 'add_course' %}active{% endif %}" href="{{ url_for('add_course') }}">Add Course</a>
+          </li>
+          {% endif %}
+          {% if current_user.role in ['admin'] %}
+          <li class="nav-item">
+            <a class="nav-link {% if request.endpoint == 'manage_users' %}active{% endif %}" href="{{ url_for('manage_users') }}">Manage Users</a>
+          </li>
+          {% endif %}
+          <li class="nav-item">
+            <a class="nav-link {% if request.endpoint == 'my_learning' %}active{% endif %}" href="{{ url_for('my_learning') }}">My Learning</a>
+          </li>
+        </ul>
+        <!-- Right-aligned User Section -->
+        <div class="d-flex align-items-center gap-2">
+          <!-- Theme Toggle -->
+          <button id="theme-toggle" class="theme-toggle btn btn-sm">☾⋆</button>
+          <div class=" dropdown">
+            <a class="dropdown-toggle" href="#" id="dropdownMenuUser" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fas fa-user"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuUser">
+              <li><span class="dropdown-item-text">Hello, {{ current_user.username }}</span></li>
+              {% if current_user.is_authenticated %}
+              <li>
+                <a class="dropdown-item" href="{{ url_for('logout') }}" onclick="resetTheme()">
+                  Log Out
+                </a>
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  

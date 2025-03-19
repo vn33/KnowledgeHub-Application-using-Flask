@@ -1,0 +1,92 @@
+<!-- Edit Course Modal -->
+ <!-- Bootstrap Modal for Confirmation -->
+<style>
+  form label{
+    font-size: 10pt;
+    margin-bottom: 5px;
+  }
+  img{
+    display: block;
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+  }
+
+  .form-control {
+    padding: none;
+    font-size: 14px;
+}
+ .confirm-title{
+  font-size: 24px!important;
+  margin-bottom: -20px;
+ }
+
+ .form-btn{
+  padding: 0px 1rem !important;
+ }
+
+
+
+</style>
+<div class="modal fade confirmDeleteModal" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title confirm-title" id="confirmDeleteModalLabel">Confirm Deletion</h5>
+            <img src="https://img.icons8.com/?size=100&id=3062&format=png&color=adadad" class="btn close" data-bs-dismiss="modal" aria-label="Close" style="cursor:pointer;width:60px;height:auto">
+        </div>
+        <div class="modal-body">
+            Are you sure you want to delete this course?
+        </div>
+        <div class="modal-footer" style="padding:1rem!important">
+            <button type="button" class="btn form-btn" id="confirmDeleteButton">Delete</button>
+        </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editModalLabel">Edit Course</h5>
+          <!-- Custom close icon (using Font Awesome or Bootstrap default) -->
+          <img src="https://img.icons8.com/?size=100&id=3062&format=png&color=adadad" class="btn close" data-bs-dismiss="modal" aria-label="Close" style="cursor:pointer;width:60px;height:auto">
+        </div>
+        <div class="modal-body">
+          <!-- Form to edit the course -->
+          <form id="editCourseForm" method="POST" action="" enctype="multipart/form-data">
+            <div class="mb-2">
+              <label for="course_name">Course Name:</label>
+              <input type="text" name="course_name" class="form-control" id="course_name" required>
+            </div>
+            <div class="mb-2">
+              <label for="description">Description:</label>
+              <textarea name="description" class="form-control" id="description" required></textarea>
+            </div>
+            <div class="mb-2">
+              <label for="price">Price:</label>
+              <input type="number" name="price" class="form-control" id="price" required step="0.01">
+            </div>
+            <!-- Display current image -->
+             <div style="display: flex;justify-content: space-between;align-items: center;">
+            <div class="mb-2">
+              <label>Current Image:</label><br>
+              <img id="currentCourseImage" src="" alt="Current course image" style="max-width: 100%; height: auto;">
+            </div>
+            <div class="mb-3">
+              <label for="course_image">Change Course Image:</label>
+              <img id="previewCourseImage" src="" alt="Preview of uploaded image" style="max-width: 100%; height: auto; display: none; margin-bottom: 10px;">
+              <input type="file" name="course_image" class="form-control" id="course_image" accept="image/*">
+            </div>
+          </div>
+            <div class="modal-footer mt-2">
+              <button type="submit" class="btn form-btn">Update</button>
+            </div>
+          </form>            
+        </div>
+      </div>
+    </div>
+</div>
+
+
+  

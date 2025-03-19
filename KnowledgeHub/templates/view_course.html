@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="view-course-container my-4">
+  {% if course %}
+  <div class="view-course-card position-relative">
+    <img src="{{ url_for('static', filename=course.course_image) }}" 
+         class="view-course-img" 
+         alt="{{ course.course_name }}">
+    
+    <!-- Icons Overlay -->
+    <div class="view-course-icons">
+        {% if current_user.role in ['admin','subadmin'] %}<i class="fas fa-edit" onclick="editCourse('{{ course.id }}')"></i>{% endif %}
+      {% if current_user.role == 'admin' %}<i class="fas fa-trash" onclick="deleteCourse('{{ course.id }}')"></i>{% endif %}
+    </div>
+    
+    <div class="view-course-body">
+      <h3 class="view-course-title">{{ course.course_name }}</h3>
+      <p class="view-course-desc">{{ course.description }}</p>
+      <p class="view-course-price">$ {{ course.price }}</p>
+      <p class="view-course-created">
+        Created on: {{ course.created_at | format_date }} 
+        {% if course.updated_at %}| Updated on: {{ course.updated_at | format_date }}{% endif %}
+      </p>
+    </div>
+    <!-- Action Buttons -->
+    <div class="view-course-actions mt-4 d-flex justify-content-between">
+        <a href="{{ url_for('index') }}">
+            Back to Courses
+        </a>
+        <a href="{{ url_for('create_checkout_session', id=course.id) }}">
+            Purchase Course
+        </a>
+    </div>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}
